@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Cipolla's Games</title>
+  <style>
+    :root {
+      --bg: #121214;
+      --card-bg: #1a1a1e;
+      --text: #eaeaea;
+      --accent: #5865F2; /* Discord blurple / game accent */
+      --muted: #888;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    button.tab-btn {
+      background: var(--card-bg);
+      border: 1px solid #333;
+      color: var(--text);
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    button.tab-btn.active, button.tab-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .tab-content {
+      display: none;
+      width: 100%;
+      max-width: 800px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #2a2a30;
+      padding: 1.2rem;
+      border-radius: 8px;
+      margin-bottom: 1.2rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      background: #333;
+      margin-bottom: 0.5rem;
+    }
+    .badge.released { background: #238636; }
+    .badge.upcoming { background: #8957e5; }
+    a.btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      margin-right: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    a.btn.secondary {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Joseph Cipolla's Games</h1>
+  </header>
+
+  <nav>
+    <button class="tab-btn active" onclick="showTab('updates')">Updates</button>
+    <button class="tab-btn" onclick="showTab('games')">Games</button>
+    <button class="tab-btn" onclick="showTab('about')">About & Connect</button>
+  </nav>
+
+  <!-- TAB 1: UPDATES / DEVLOG -->
+  <section id="updates" class="tab-content active">
+    <div class="card">
+      <small style="color: var(--muted);">Today</small>
+      <h2>Welcome to Joseph Cipolla's Games</h2>
+      <p>I just launched my official site! Follow along here for updates on my current games and upcoming releases.</p>
+    </div>
+  </section>
+
+  <!-- TAB 2: GAMES -->
+  <section id="games" class="tab-content">
+    <h2>Current Games</h2>
+    
+    <!-- Seeds & Bones -->
+    <div class="card">
+      <span class="badge released">Available</span>
+      <h3>Seeds & Bones</h3>
+      <p>Brief pitch or description of your game goes here.</p>
+      <!-- REPLACE 'YOUR-USERNAME' WITH YOUR ACTUAL GITHUB USERNAME -->
+      <a href="https://github.com/YOUR-USERNAME/seeds-and-bones" class="btn secondary" target="_blank">View GitHub Repo</a>
+    </div>
+
+    <!-- Dark Ocean -->
+    <div class="card">
+      <span class="badge released">Available</span>
+      <h3>Dark Ocean</h3>
+      <p>Brief pitch or description of your game goes here.</p>
+      <a href="https://github.com/YOUR-USERNAME/dark-ocean" class="btn secondary" target="_blank">View GitHub Repo</a>
+    </div>
+
+    <!-- Star Renaissance -->
+    <div class="card">
+      <span class="badge released">Available</span>
+      <h3>Star Renaissance</h3>
+      <p>Brief pitch or description of your game goes here.</p>
+      <a href="https://github.com/YOUR-USERNAME/star-renaissance" class="btn secondary" target="_blank">View GitHub Repo</a>
+    </div>
+
+    <h2>Upcoming Games</h2>
+
+    <!-- Upcoming Game 1 -->
+    <div class="card">
+      <span class="badge upcoming">In Development</span>
+      <h3>Upcoming Project 1</h3>
+      <p>Concept art, genre, and description coming soon.</p>
+    </div>
+
+    <!-- Upcoming Game 2 -->
+    <div class="card">
+      <span class="badge upcoming">In Development</span>
+      <h3>Upcoming Project 2</h3>
+      <p>Concept art, genre, and description coming soon.</p>
+    </div>
+  </section>
+
+  <!-- TAB 3: ABOUT & CONNECT -->
+  <section id="about" class="tab-content">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>Hello! I'm Joseph Cipolla, an indie game developer building unique experiences across different genres.</p>
+      
+      <h3>Join the Community</h3>
+      <p>Connect with other players and give feedback directly:</p>
+      <a href="https://discord.gg/YOUR_INVITE_LINK" class="btn" target="_blank">Join Discord</a>
+      
+      <h3 style="margin-top: 1.5rem;">Contact</h3>
+      <p>Business / Inquiries: <a href="mailto:your-email@example.com" style="color: var(--accent);">your-email@example.com</a></p>
+    </div>
+  </section>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
